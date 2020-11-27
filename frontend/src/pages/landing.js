@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Col, Row, Card, Button, Container} from "react-bootstrap"
+import {BrowserRouter as Router, Link } from "react-router-dom";
 
 export default class Landing extends Component {
   constructor(props){
@@ -50,7 +51,13 @@ export default class Landing extends Component {
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
                         <Col>
-                          <Row id="gradButton" className="landingRow justify-content-md-center">"login"</Row>
+                        <Row id="gradButton" className="landingRow justify-content-md-center" style={{paddingBottom:"10%"}}>
+                          <Link to={{
+                            pathname: '/outfit'
+                          }}>
+                            <Button className="landingLoginButton">Login</Button>
+                          </Link>
+                        </Row>
                         </Col>
                       </Container>
                     </Card.Body>
@@ -74,9 +81,15 @@ export default class Landing extends Component {
                     <Card.Body>
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
-                        <Col>
-                          <Row id="gradButton" className="landingRow justify-content-md-center">"sign up"</Row>
-                        </Col>
+                      <Col>
+                        <Row id="gradButton" className="landingRow justify-content-md-center" style={{paddingBottom:"10%"}}>
+                          <Link to={{
+                              pathname: '/outfit'
+                            }}>
+                            <Button className="landingLoginButton">Sign Up</Button>
+                          </Link>
+                        </Row>
+                      </Col>
                       </Container>
                     </Card.Body>
                   </Card>
