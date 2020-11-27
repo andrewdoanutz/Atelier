@@ -12,7 +12,7 @@
   color: white !important;
 }
 .navbarTitle:hover{
-  color:#fdd835 !important;
+  color:#ffe57b !important;
 }
 
 .navbarLink{
@@ -22,5 +22,100 @@
 }
 
 .navbarLink:hover{
-  color: #fdd835 !important;
+  color: #ffe57b !important;
+}
+
+.landing{
+  background-color: #EF9A9A;
+}
+
+#gradientButton {
+  background: #9E8C3B;
+  background: -moz-linear-gradient(left, #9E8C3B 0%, #CAB34C 50%, #FFE57B 100%);
+  background: -webkit-linear-gradient(left, #9E8C3B 0%, #CAB34C 50%, #FFE57B 100%);
+  background-image: linear-gradient(to right, #9E8C3B 0%, #CAB34C 50%, #FFE57B 100%);
+  }
+
+.landingLoginButton{
+  background-image: linear-gradient(to right, #9E8C3B 0%, #CAB34C 50%, #FFE57B 100%);
+  margin: 2%;
+  font-weight: bolder;
+  background-color:#9E8C3B!important;
+  color:white;
+  border-color: #9E8C3B ;
+  border-width: 0px;
+  font-size: x-large;
+  padding: 1%;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10%/50%;
+  width: 200px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 10%/50%;
+}
+
+.landingLoginButton:hover{
+  background-image: linear-gradient(to left, #9E8C3B 0%, #CAB34C 50%, #FFE57B 100%);
+  font-weight: bolder;
+  border-radius:10%/50%;
+  background-color:#FFE57B!important;
+  color:white;
+  border-color: #FFE57B;
+  border-width: 0px;
+  font-size: x-large;
+  padding: 1%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 1.2% 2% 2.8%;
+}
+
+.landingSignUpButton{
+  margin: 2%;
+  font-weight: bolder;
+  background-color:transparent!important;
+  color:#9E8C3B;
+  border-color: #9E8C3B ;
+  border-width: 3px;
+  font-size: x-large;
+  padding: 1%;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10%/50%;
+  width: 200px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 10%/50%;
+}
+
+.landingSignUpButton:hover{
+  background-image: linear-gradient(to left, #9E8C3B 0%, #CAB34C 50%, #FFE57B 100%);
+  font-weight: bolder;
+  border-radius:10%/50%;
+  background-color:#FFE57B!important;
+  color:white;
+  border-color: transparent;
+  border-width: 3px;
+  font-size: x-large;
+  padding: 1%; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 1.2% 2% 2.8%;
+}
+
+.landingRow{
+  padding-top: 3%;
+}
+
+.landingTitle{
+  font-size: 400%;
+  padding-bottom: 10%;
 }
