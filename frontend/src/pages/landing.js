@@ -10,7 +10,7 @@ export default class Landing extends Component {
           <Col md={6}>
             <Row></Row>
             <Row style={{paddingTop:"35%",textAlign:"center",paddingBottom:"35%"}}>
-              <Card style={{width:"100%", textAlign:"center",paddingTop:"5%", borderRadius: "30%/50%"}}>
+              <Card className="shadow" style={{width:"100%", textAlign:"center",paddingTop:"5%"}}>
                 <Card.Body>
                   <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                   <Container>
