@@ -53,14 +53,18 @@ export default class Landing extends Component {
                         <Col>
                           <Row>
                             <form className="col">
-                              <div className="form-group-row text-left">
-                                <label className="form-label" htmlFor="login">Login</label>
+                              <div className="form-group row-text-left mb-15">
+                                {/* <label className="form-label" htmlFor="login">Login</label> */}
                                 <input className="form-control" type="text" id="login" name="login" placeholder="Username / Email" required />
                               </div>
-                              <div className="form-group-row has-feedback">
-                                <label className="control-label">Username</label>
-                                <input type="text" className="form-control" placeholder="Username" />
-                                <i className="fa fa-user form-control-feedback"></i>
+                              <div className="form-group-row text-left">
+                                {/* <label className="control-label">Password</label> */}
+                                <div className="input-group">
+                                  <input className="form-control" type="text" className="form-control" placeholder="Password" />
+                                  <div class="input-group-append">
+                                    <span class="input-group-text fa fa-eye-slash" id="show-password-addon"></span>
+                                  </div>
+                                </div>
                               </div>
                               <div className="form-group-row">
                                 <div className="row">
