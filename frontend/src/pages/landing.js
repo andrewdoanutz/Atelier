@@ -6,7 +6,8 @@ export default class Landing extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pageState: "landing"
+      pageState: "landing",
+      showPassword: false,
     }
   }
 
@@ -54,15 +55,13 @@ export default class Landing extends Component {
                           <Row>
                             <form className="col">
                               <div className="form-group row-text-left mb-15">
-                                {/* <label className="form-label" htmlFor="login">Login</label> */}
                                 <input className="form-control" type="text" id="login" name="login" placeholder="Username / Email" required />
                               </div>
                               <div className="form-group-row text-left">
-                                {/* <label className="control-label">Password</label> */}
                                 <div className="input-group">
-                                  <input className="form-control" type="text" className="form-control" placeholder="Password" />
-                                  <div class="input-group-append">
-                                    <span class="input-group-text fa fa-eye-slash" id="show-password-addon"></span>
+                                  <input className="form-control" type={this.state.showPassword ? 'text' : 'password'} className="form-control" placeholder="Password"/>
+                                  <div class="input-group-append" role="button">
+                                    <span class="input-group-text fa fa-eye-slash" id="show-password-addon" onClick={()=>this.setState({showPassword: !this.state.showPassword})}></span>
                                   </div>
                                 </div>
                               </div>
@@ -86,13 +85,10 @@ export default class Landing extends Component {
                               <Button className="landingLoginButton">Login</Button>
                             </Link>
                           </Row>
-                          <Row className="d-flex justify-content-center" style={{ paddingBottom: "10%" }}>
-                            <div className="text-muted">
-                              <small>Don't have an account? </small>
-                              <small>
-                                <a className="text" href="#">Sign Up</a>
-                              </small>
-                            </div>
+                          <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
+                            <small>
+                              Don't have an account? <a className="text" href="#" onClick={()=>this.setState({ pageState: "signUp" })}>Sign Up</a>
+                            </small>
                           </Row>
                         </Col>
                       </Container>
@@ -118,12 +114,31 @@ export default class Landing extends Component {
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
                         <Col>
-                          <Row id="gradButton" className="landingRow justify-content-md-center" style={{ paddingBottom: "10%" }}>
+                          <form>
+                            <div className="form-group">
+                              <input type="email" class="form-control" id="email" placeholder="Email" />
+                            </div>
+                            <div className="form-group">
+                              <input type="text" class="form-control" id="username" placeholder="Username" />
+                            </div>
+                            <div className="form-group">
+                              <input type="password" class="form-control" id="password" placeholder="Password" />
+                            </div>
+                            <div className="form-group">
+                              <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter Password" />
+                            </div>
+                          </form>
+                          <Row id="gradButton" className="landingRow justify-content-md-center" >
                             <Link to={{
                               pathname: '/outfit'
                             }}>
                               <Button className="landingLoginButton">Sign Up</Button>
                             </Link>
+                          </Row>
+                          <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
+                            <small>
+                              Already have an account? <a className="text" href="#" onClick={()=>(this.setState({ pageState: "login" }))}>Login</a>
+                            </small>
                           </Row>
                         </Col>
                       </Container>
