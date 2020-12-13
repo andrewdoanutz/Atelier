@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import {Col, Row, Card, Button, Container} from "react-bootstrap"
-import {BrowserRouter as Router, Link } from "react-router-dom";
+import { Col, Row, Card, Button, Container } from "react-bootstrap"
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 export default class Landing extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state={
+    this.state = {
       pageState: "landing"
     }
   }
 
   render() {
-    switch(this.state.pageState){
+    switch (this.state.pageState) {
       case 'landing':
         return (
           <Container className="justify-content-md-center">
@@ -19,14 +19,14 @@ export default class Landing extends Component {
               <Col md={3}></Col>
               <Col md={6}>
                 <Row></Row>
-                <Row style={{paddingTop:"35%",textAlign:"center",paddingBottom:"35%"}}>
-                  <Card className="shadow" style={{width:"100%", textAlign:"center",paddingTop:"5%"}}>
+                <Row style={{ paddingTop: "35%", textAlign: "center", paddingBottom: "35%" }}>
+                  <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
                     <Card.Body>
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
                         <Col>
-                          <Row id="gradButton" className="landingRow justify-content-md-center"><Button className="landingLoginButton" onClick={()=>{ this.setState({pageState:"login"})}} >Login</Button></Row>
-                          <Row id="gradButton" className="landingRow justify-content-md-center" style={{paddingBottom:"10%"}}><Button className="landingSignUpButton" onClick={()=>{ this.setState({pageState:"signUp"})}} >Sign Up</Button></Row>
+                          <Row id="gradButton" className="landingRow justify-content-md-center"><Button className="landingLoginButton" onClick={() => { this.setState({ pageState: "login" }) }} >Login</Button></Row>
+                          <Row id="gradButton" className="landingRow justify-content-md-center" style={{ paddingBottom: "10%" }}><Button className="landingSignUpButton" onClick={() => { this.setState({ pageState: "signUp" }) }} >Sign Up</Button></Row>
                         </Col>
                       </Container>
                     </Card.Body>
@@ -39,25 +39,56 @@ export default class Landing extends Component {
           </Container>
         )
       case 'login':
-        return(
+        return (
           <Container className="justify-content-md-center">
             <Row>
               <Col md={3}></Col>
               <Col md={6}>
                 <Row></Row>
-                <Row style={{paddingTop:"35%",textAlign:"center",paddingBottom:"35%"}}>
-                  <Card className="shadow" style={{width:"100%", textAlign:"center",paddingTop:"5%"}}>
+                <Row style={{ paddingTop: "35%", textAlign: "center", paddingBottom: "35%" }}>
+                  <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
                     <Card.Body>
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
                         <Col>
-                        <Row id="gradButton" className="landingRow justify-content-md-center" style={{paddingBottom:"10%"}}>
-                          <Link to={{
-                            pathname: '/outfit'
-                          }}>
-                            <Button className="landingLoginButton">Login</Button>
-                          </Link>
-                        </Row>
+                          <Row>
+                            <form className="col">
+                              <div className="form-group-row text-left">
+                                <label className="form-label" for="login">Login</label>
+                                <input className="form-control" type="text" id="login" name="login" required />
+                              </div>
+                              <div className="form-group-row text-left">
+                                <label for="password">Password</label>
+                                <input className="form-control" type="text" id="password" name="password" required />
+                              </div>
+                              <div className="form-group-row">
+                                <div className="row">
+                                  <div className="text-left col">
+                                    <a className="text" href="#">Forgot password?</a>
+                                  </div>
+                                  <div className="form-check text-right col">
+                                    <input className="form-check-input" type="checkbox" id="rememberLogin" />
+                                    <label for="rememberLogin">Remember Me</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </Row>
+                          <Row id="gradButton" className="landingRow justify-content-md-center" >
+                            <Link to={{
+                              pathname: '/outfit'
+                            }}>
+                              <Button className="landingLoginButton">Login</Button>
+                            </Link>
+                          </Row>
+                          <Row className="d-flex justify-content-center" style={{ paddingBottom: "10%" }}>
+                            <div className="text-muted">
+                              <small>Don't have an account? </small>
+                              <small>
+                                <a className="text" href="#">Sign Up</a>
+                              </small>
+                            </div>
+                          </Row>
                         </Col>
                       </Container>
                     </Card.Body>
@@ -70,26 +101,26 @@ export default class Landing extends Component {
           </Container>
         )
       case 'signUp':
-        return(
+        return (
           <Container className="justify-content-md-center">
             <Row>
               <Col md={3}></Col>
               <Col md={6}>
                 <Row></Row>
-                <Row style={{paddingTop:"35%",textAlign:"center",paddingBottom:"35%"}}>
-                  <Card className="shadow" style={{width:"100%", textAlign:"center",paddingTop:"5%"}}>
+                <Row style={{ paddingTop: "35%", textAlign: "center", paddingBottom: "35%" }}>
+                  <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
                     <Card.Body>
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
-                      <Col>
-                        <Row id="gradButton" className="landingRow justify-content-md-center" style={{paddingBottom:"10%"}}>
-                          <Link to={{
+                        <Col>
+                          <Row id="gradButton" className="landingRow justify-content-md-center" style={{ paddingBottom: "10%" }}>
+                            <Link to={{
                               pathname: '/outfit'
                             }}>
-                            <Button className="landingLoginButton">Sign Up</Button>
-                          </Link>
-                        </Row>
-                      </Col>
+                              <Button className="landingLoginButton">Sign Up</Button>
+                            </Link>
+                          </Row>
+                        </Col>
                       </Container>
                     </Card.Body>
                   </Card>
@@ -101,7 +132,7 @@ export default class Landing extends Component {
           </Container>
         )
       default:
-        return(
+        return (
           <div>pageState Error</div>
         )
     }
