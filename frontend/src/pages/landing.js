@@ -54,12 +54,13 @@ export default class Landing extends Component {
                           <Row>
                             <form className="col">
                               <div className="form-group-row text-left">
-                                <label className="form-label" for="login">Login</label>
-                                <input className="form-control" type="text" id="login" name="login" required />
+                                <label className="form-label" htmlFor="login">Login</label>
+                                <input className="form-control" type="text" id="login" name="login" placeholder="Username / Email" required />
                               </div>
-                              <div className="form-group-row text-left">
-                                <label for="password">Password</label>
-                                <input className="form-control" type="text" id="password" name="password" required />
+                              <div className="form-group-row has-feedback">
+                                <label className="control-label">Username</label>
+                                <input type="text" className="form-control" placeholder="Username" />
+                                <i className="fa fa-user form-control-feedback"></i>
                               </div>
                               <div className="form-group-row">
                                 <div className="row">
@@ -68,7 +69,7 @@ export default class Landing extends Component {
                                   </div>
                                   <div className="form-check text-right col">
                                     <input className="form-check-input" type="checkbox" id="rememberLogin" />
-                                    <label for="rememberLogin">Remember Me</label>
+                                    <label htmlFor="rememberLogin">Remember Me</label>
                                   </div>
                                 </div>
                               </div>
