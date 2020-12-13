@@ -1,7 +1,7 @@
 
 .navbar {
   background: #EF9A9A;
-  
+
 }
 
 .navbarTitle{
@@ -27,6 +27,7 @@
 
 .landing{
   background-color: #EF9A9A;
+  height:100%;
 }
 
 #gradientButton {
@@ -74,7 +75,7 @@
   margin: 1.2% 2% 2.8%;
 }
 
-.landingLoginButton:active{ 
+.landingLoginButton:active{
   box-shadow: none !important;
 }
 .landingLoginButton:focus{
@@ -113,12 +114,12 @@
   border-color: transparent;
   border-width: 3px;
   font-size: x-large;
-  padding: 1%; 
+  padding: 1%;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   margin: 1.2% 2% 2.8%;
 }
 
-.landingSignUpButton:active{ 
+.landingSignUpButton:active{
   box-shadow: none !important;
   border-color: #9E8C3B !important;
 }

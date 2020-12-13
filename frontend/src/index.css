@@ -3,4 +3,8 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   background-color: #FFFFFF;
+  height: 100vh;
+}
+#root, #root > div, #root > div > div {
+  height: 100%
 }
