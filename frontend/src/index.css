@@ -3,4 +3,5 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   background-color: #FFFFFF;
+  height: 100vh;
 }
