@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Row, Card, Button, Container } from "react-bootstrap"
+import { Col, Row, Card, Button, Container, Form, InputGroup } from "react-bootstrap"
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 export default class Landing extends Component {
@@ -53,30 +53,33 @@ export default class Landing extends Component {
                       <Container>
                         <Col>
                           <Row>
-                            <form className="col">
-                              <div className="form-group row-text-left mb-15">
-                                <input className="form-control" type="text" id="login" name="login" placeholder="Username / Email" required />
-                              </div>
-                              <div className="form-group-row text-left">
-                                <div className="input-group">
-                                  <input className="form-control" type={this.state.showPassword ? 'text' : 'password'} className="form-control" placeholder="Password"/>
-                                  <div class="input-group-append" role="button">
-                                    <span class="input-group-text fa fa-eye-slash" id="show-password-addon" onClick={()=>this.setState({showPassword: !this.state.showPassword})}></span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="form-group-row">
-                                <div className="row">
-                                  <div className="text-left col">
-                                    <a className="text" href="#">Forgot password?</a>
-                                  </div>
-                                  <div className="form-check text-right col">
-                                    <input className="form-check-input" type="checkbox" id="rememberLogin" />
-                                    <label htmlFor="rememberLogin">Remember Me</label>
-                                  </div>
-                                </div>
-                              </div>
-                            </form>
+                            <Col>
+                              <Form>
+                                <Form.Row style={{marginBottom: '15px'}}>
+                                  <Form.Control type="text" id="login" placeholder="Username / Email" required></Form.Control>
+                                </Form.Row>
+                                <Form.Row>
+                                  <InputGroup>
+                                    <Form.Control type={this.state.showPassword ? 'text' : 'password'} placeholder="Password"></Form.Control>
+                                    <InputGroup.Append role="button">
+                                      <InputGroup.Text className={`fa ${this.state.showPassword ? 'fa-eye-slash' : 'fa-eye'}`} onClick={() => this.setState({ showPassword: !this.state.showPassword })}></InputGroup.Text>
+                                    </InputGroup.Append>
+                                  </InputGroup>
+                                </Form.Row>
+                                <Form.Group>
+                                  <Row>
+                                    <Col>
+                                      <div className="text-left">
+                                        <a className="text" href="#">Forgot password?</a>
+                                      </div>
+                                    </Col>
+                                    <Col className="text-right">
+                                      <Form.Check type="checkbox" id="rememberCheck" label="Remember Me" />
+                                    </Col>
+                                  </Row>
+                                </Form.Group>
+                              </Form>
+                            </Col>
                           </Row>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
                             <Link to={{
@@ -87,7 +90,7 @@ export default class Landing extends Component {
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Don't have an account? <a className="text" href="#" onClick={()=>this.setState({ pageState: "signUp" })}>Sign Up</a>
+                              Don't have an account? <a className="text" href="#" onClick={() => this.setState({ pageState: "signUp" })}>Sign Up</a>
                             </small>
                           </Row>
                         </Col>
@@ -116,16 +119,16 @@ export default class Landing extends Component {
                         <Col>
                           <form>
                             <div className="form-group">
-                              <input type="email" class="form-control" id="email" placeholder="Email" />
+                              <input type="email" className="form-control" id="email" placeholder="Email" />
                             </div>
                             <div className="form-group">
-                              <input type="text" class="form-control" id="username" placeholder="Username" />
+                              <input type="text" className="form-control" id="username" placeholder="Username" />
                             </div>
                             <div className="form-group">
-                              <input type="password" class="form-control" id="password" placeholder="Password" />
+                              <input type="password" className="form-control" id="password" placeholder="Password" />
                             </div>
                             <div className="form-group">
-                              <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter Password" />
+                              <input type="password" className="form-control" id="confirmPassword" placeholder="Re-enter Password" />
                             </div>
                           </form>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
@@ -137,7 +140,7 @@ export default class Landing extends Component {
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Already have an account? <a className="text" href="#" onClick={()=>(this.setState({ pageState: "login" }))}>Login</a>
+                              Already have an account? <a className="text" href="#" onClick={() => (this.setState({ pageState: "login" }))}>Login</a>
                             </small>
                           </Row>
                         </Col>
