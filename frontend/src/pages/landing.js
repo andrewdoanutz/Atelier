@@ -117,20 +117,20 @@ export default class Landing extends Component {
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
                         <Col>
-                          <form>
-                            <div className="form-group">
-                              <input type="email" className="form-control" id="email" placeholder="Email" />
-                            </div>
-                            <div className="form-group">
-                              <input type="text" className="form-control" id="username" placeholder="Username" />
-                            </div>
-                            <div className="form-group">
-                              <input type="password" className="form-control" id="password" placeholder="Password" />
-                            </div>
-                            <div className="form-group">
-                              <input type="password" className="form-control" id="confirmPassword" placeholder="Re-enter Password" />
-                            </div>
-                          </form>
+                          <Form>
+                            <Form.Group>
+                              <Form.Control type="email" id="email" placeholder="Email" />
+                            </Form.Group>
+                            <Form.Group>
+                              <Form.Control type="text" id="username" placeholder="Username" />
+                            </Form.Group>
+                            <Form.Group>
+                              <Form.Control type="password" id="password" placeholder="Password" />
+                            </Form.Group>
+                            <Form.Group>
+                              <Form.Control type="password" id="confirmPassword" placeholder="Re-enter Password" />
+                            </Form.Group>
+                          </Form>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
                             <Link to={{
                               pathname: '/outfit'
