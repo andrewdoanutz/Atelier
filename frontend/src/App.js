@@ -20,7 +20,7 @@ function App() {
     <div>
       <BrowserRouter>
         <div>
-          <div key={Date.now()} className = 'landing' style={window.location.pathname === '/' ? {height: "100%"} : {}}>
+          <div className = 'landing' style={window.location.pathname === '/' ? {height: "100%"} : {}}>
           <Route exact path="/" component={Landing} />
           </div>
           <Route exact path="/account" component={Account} />
