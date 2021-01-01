@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Col, Row, Card, Button, Container, Form, InputGroup } from "react-bootstrap"
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 export default class Landing extends Component {
   constructor(props) {
