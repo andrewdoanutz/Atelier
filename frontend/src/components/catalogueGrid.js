@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Row, Container} from "react-bootstrap"
+import { Col, Row, Container, Button} from "react-bootstrap"
 import CatalogueGridCell from './catalogueGridCell'
 
 export default class CatalogueGrid extends Component {
@@ -21,7 +21,7 @@ export default class CatalogueGrid extends Component {
                 formattedClothes.push(tempArr)
                 tempArr = []
             }
-            if (count === this.state.clothes.length) {
+            if (count === this.state.clothes.length && tempArr.length) {
                 formattedClothes.push(tempArr)
             }
             return 0
@@ -31,10 +31,12 @@ export default class CatalogueGrid extends Component {
                 {formattedClothes.map((arr)=>{
                     return ( 
                         <Row style={{paddingBottom:"2%"}}>
-                        {arr.map((pic) => {
+                        {arr.map((pic, ind) => {
                         return (
                             <Col md={4} style={{paddingLeft:"1%", paddingRight:"1%"}}>
-                                <CatalogueGridCell pic={pic} />
+                                <Button className="catalogueGridCellButton">
+                                <CatalogueGridCell id={ind} pic={pic} />
+                                </Button>
                             </Col>
                         )
                         })}

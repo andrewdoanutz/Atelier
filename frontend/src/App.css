@@ -143,3 +143,10 @@ body{
   height: 150px;
   width: 150px;
 }
+
+.catalogueGridCellButton, .catalogueGridCellButton:active, .catalogueGridCellButton:hover, .catalogueGridCellButton:visited, .catalogueGridCellButton:link{
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
