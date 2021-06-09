@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Col, Row, Card, Button, Container, Form, InputGroup } from "react-bootstrap"
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Landing extends Component {
   constructor(props) {
@@ -70,7 +70,7 @@ export default class Landing extends Component {
                                   <Row>
                                     <Col>
                                       <div className="text-left">
-                                        <a className="text" href="#">Forgot password?</a>
+                                        <a className="text" href="/">Forgot password?</a>
                                       </div>
                                     </Col>
                                     <Col className="text-right">
@@ -82,15 +82,13 @@ export default class Landing extends Component {
                             </Col>
                           </Row>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
-                            <Link to={{
-                              pathname: '/outfit'
-                            }}>
+                            <Link to="/outfit">
                               <Button className="landingLoginButton">Login</Button>
                             </Link>
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Don't have an account? <a className="text" href="#" onClick={() => this.setState({ pageState: "signUp" })}>Sign Up</a>
+                              Don't have an account? <a className="text" href="/" onClick={() => this.setState({ pageState: "signUp" })}>Sign Up</a>
                             </small>
                           </Row>
                         </Col>
@@ -132,15 +130,13 @@ export default class Landing extends Component {
                             </Form.Group>
                           </Form>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
-                            <Link to={{
-                              pathname: '/outfit'
-                            }}>
+                            <Link to="/outfit">
                               <Button className="landingLoginButton">Sign Up</Button>
                             </Link>
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Already have an account? <a className="text" href="#" onClick={() => (this.setState({ pageState: "login" }))}>Login</a>
+                              Already have an account? <a className="text" href="/" onClick={() => (this.setState({ pageState: "login" }))}>Login</a>
                             </small>
                           </Row>
                         </Col>
