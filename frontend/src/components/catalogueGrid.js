@@ -28,7 +28,7 @@ export default class CatalogueGrid extends Component {
             return 0
         })
         console.log(formattedClothes)
-        return (
+        return (   
             <Col>
                 {formattedClothes.map((arr)=>{
                     return ( 
