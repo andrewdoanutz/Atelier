@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Col,Row} from "react-bootstrap"
+import {Col, Row, Card, Container} from "react-bootstrap"
 
 export default class CatalogueGridCell extends Component {
 
@@ -15,7 +15,15 @@ export default class CatalogueGridCell extends Component {
         <div>
             <Row>
                 <Col>
-                    <img className="catalogueGridImage" src={this.state.pic}/>
+                    <Card className="shadow" style={{ width: "100%", textAlign: "center", padding: "0%" }}>
+                    <Card.Body>
+                      <Container>
+                        <Row>
+                            <Col><img className="catalogueGridImage" src={this.props.pic}/></Col>
+                        </Row>
+                      </Container>
+                    </Card.Body>
+                  </Card>
                 </Col>
             </Row>
         </div>

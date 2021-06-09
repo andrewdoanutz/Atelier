@@ -24,8 +24,8 @@ export default class Catalogue extends Component {
             <NavBar/>
             <Container style={{paddingTop:"10%"}}>
                 <Row>
-                    <Col><CatalogueGrid clothes={this.state.clothes} /></Col>
                     <Col></Col>
+                    <Col md={8}><CatalogueGrid clothes={this.state.clothes} /></Col>
                 </Row>
             </Container>
             </>

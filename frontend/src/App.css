@@ -1,4 +1,6 @@
-
+body{
+  background-color: #f8f8ff;
+}
 .navbar {
   background: #EF9A9A;
 
@@ -139,4 +141,5 @@
 
 .catalogueGridImage{
   height: 150px;
+  width: 150px;
 }

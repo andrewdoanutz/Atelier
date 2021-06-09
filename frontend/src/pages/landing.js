@@ -70,7 +70,7 @@ export default class Landing extends Component {
                                   <Row>
                                     <Col>
                                       <div className="text-left">
-                                        <a className="text" href="/">Forgot password?</a>
+                                        <a className="text" href="#">Forgot password?</a>
                                       </div>
                                     </Col>
                                     <Col className="text-right">
@@ -88,7 +88,7 @@ export default class Landing extends Component {
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Don't have an account? <a className="text" href="/" onClick={() => this.setState({ pageState: "signUp" })}>Sign Up</a>
+                              Don't have an account? <a className="text" href="#" onClick={() => this.setState({ pageState: "signUp" })}>Sign Up</a>
                             </small>
                           </Row>
                         </Col>
@@ -136,7 +136,7 @@ export default class Landing extends Component {
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Already have an account? <a className="text" href="/" onClick={() => (this.setState({ pageState: "login" }))}>Login</a>
+                              Already have an account? <a className="text" href="#" onClick={() => (this.setState({ pageState: "login" }))}>Login</a>
                             </small>
                           </Row>
                         </Col>

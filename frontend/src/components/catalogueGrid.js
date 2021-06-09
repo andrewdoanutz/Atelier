@@ -15,7 +15,6 @@ export default class CatalogueGrid extends Component {
         let tempArr = []
         let count = 0
         this.state.clothes.map((pic)=>{
-            console.log(tempArr.length)
             tempArr.push(pic)
             count+=1
             if (tempArr.length === 3) {
@@ -27,15 +26,16 @@ export default class CatalogueGrid extends Component {
             }
             return 0
         })
-        console.log(formattedClothes)
         return (   
             <Col>
                 {formattedClothes.map((arr)=>{
                     return ( 
-                        <Row>
+                        <Row style={{paddingBottom:"2%"}}>
                         {arr.map((pic) => {
                         return (
+                            <Col md={4} style={{paddingLeft:"1%", paddingRight:"1%"}}>
                                 <CatalogueGridCell pic={pic} />
+                            </Col>
                         )
                         })}
                         </Row>
