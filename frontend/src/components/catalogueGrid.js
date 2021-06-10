@@ -6,10 +6,10 @@ export default class CatalogueGrid extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          showDetails: null,
           clothes: this.props.clothes
         }
     }
+
     createGrid() {
         let formattedClothes=[]
         let tempArr = []
@@ -34,8 +34,8 @@ export default class CatalogueGrid extends Component {
                         {arr.map((pic, ind) => {
                         return (
                             <Col md={4} style={{paddingLeft:"1%", paddingRight:"1%"}}>
-                                <Button className="catalogueGridCellButton">
-                                <CatalogueGridCell id={ind} pic={pic} />
+                                <Button className="catalogueGridCellButton" onClick={()=>{ this.props.changeDetailsView(pic) }}>
+                                    <CatalogueGridCell id={ind} pic={pic} />
                                 </Button>
                             </Col>
                         )

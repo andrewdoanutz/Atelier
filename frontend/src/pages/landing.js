@@ -7,7 +7,7 @@ export default class Landing extends Component {
     super(props)
     this.state = {
       pageState: "landing",
-      showPassword: false,
+      showPassword: false
     }
   }
 

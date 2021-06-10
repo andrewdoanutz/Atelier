@@ -2,14 +2,6 @@ import React, { Component } from 'react'
 import {Col, Row, Card, Container} from "react-bootstrap"
 
 export default class CatalogueGridCell extends Component {
-
-    constructor(props){
-        super(props)
-        this.state={
-            pic:this.props.pic,
-        }
-    }
-
     render() {
         return (
         <div>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import NavBar from '../components/navbar'
 import CatalogueGrid from '../components/catalogueGrid'
-import { Col, Row, Card, Button, Container} from "react-bootstrap"
+import CatalogueDetails from '../components/catalogueDetails'
+import { Col, Row, Button, Container} from "react-bootstrap"
 
 import s1 from "../images/shirt1.jpeg"
 import s2 from "../images/shirt2.jpeg"
@@ -14,18 +15,25 @@ export default class Catalogue extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          showDetails: null,
-          clothes: [s1,s2,s3,s4,s5,s6]
+          detailsPic: s1,
+          clothes: [s1,s2,s3,s4,s5,s6,s1,s2,s3,s4,s5,s6,s1,s2,s3,s4,s5,s6]
         }
-      }
+    }
+
+    changeDetailsView(pic){
+        this.setState({
+            detailsPic: pic
+        })
+    }
+
     render() {
         return (
             <>
             <NavBar/>
             <Container style={{paddingTop:"10%"}}>
                 <Row>
-                    <Col></Col>
-                    <Col md={8}><CatalogueGrid clothes={this.state.clothes} /></Col>
+                    <Col><CatalogueDetails pic={this.state.detailsPic}/></Col>
+                    <Col md={8}><CatalogueGrid clothes={this.state.clothes} changeDetailsView={this.changeDetailsView.bind(this)}/></Col>
                 </Row>
             </Container>
             </>
