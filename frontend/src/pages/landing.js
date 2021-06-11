@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Col, Row, Card, Button, Container, Form, InputGroup } from "react-bootstrap"
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class Landing extends Component {
   constructor(props) {
     super(props)
     this.state = {
       pageState: "landing",
-      showPassword: false,
+      showPassword: false
     }
   }
 
@@ -82,9 +82,7 @@ export default class Landing extends Component {
                             </Col>
                           </Row>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
-                            <Link to={{
-                              pathname: '/outfit'
-                            }}>
+                            <Link to="/outfit">
                               <Button className="landingLoginButton">Login</Button>
                             </Link>
                           </Row>
@@ -132,9 +130,7 @@ export default class Landing extends Component {
                             </Form.Group>
                           </Form>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
-                            <Link to={{
-                              pathname: '/outfit'
-                            }}>
+                            <Link to="/outfit">
                               <Button className="landingLoginButton">Sign Up</Button>
                             </Link>
                           </Row>
