@@ -1,7 +1,8 @@
 body{
   background-color: #f8f8ff;
 }
-.navbar {
+
+.navbar{
   background: #EF9A9A;
 
 }
@@ -13,6 +14,7 @@ body{
   font-size: xx-large;
   color: white !important;
 }
+
 .navbarTitle:hover{
   color:#ffe57b !important;
 }
@@ -52,7 +54,7 @@ body{
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 20px #eeeeee;
   border-radius: 10%/50%;
   width: 200px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -154,28 +156,76 @@ body{
   width: 270px;
 }
 
-.catalogueFloatingButton, .catalogueFloatingButton:visited, .catalogueFloatingButton:focus{
+.uploadClothesButton, .uploadClothesButton:visited, .uploadClothesButton:focus{
   position: fixed;
 	right: 5%;
 	bottom: 5%;
-  width: 4%;
-  height: 7%;
-  background-color:#FFE57B!important;
-  border-width: 0 !important;
-  border-radius: 50%;
-  box-shadow: none !important;
-  border-color: #FFE57B !important;
-}
-
-.catalogueFloatingButton:active, .catalogueFloatingButton:hover{
+  padding: .5% 1.5% .5% 1.5%;
+  border-width: 2px !important;
+  border-radius: 30%/50%;
+  font-weight: bolder;
   box-shadow: none !important;
   border-color: #FFE57B !important;
   background-color: white !important;
-  border-width: 2px !important;
+  color: black;
+}
+
+.uploadClothesButton:active, .uploadClothesButton:hover{
+  box-shadow: none !important;
+  border-color: #FFE57B !important;
+  color: black;
+  background-color:#FFE57B!important;
   
 }
 
+.outfitMannequinPic{
+  height: 150px;
+  width: 150px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #C4C4C4;
+  border-radius: 5%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-#catalogueFloatingButtonImage{
-  filter: invert(1);
+.outfitMannequinDislikeButton, .outfitMannequinDislikeButton:visited, .outfitMannequinDislikeButton:focus{
+  border-width: 3px !important;
+  box-shadow: none !important;
+  border-color: #Ef9a9a !important;
+  background-color: white !important;
+}
+
+.outfitMannequinDislikeButton:active, .outfitMannequinDislikeButton:hover{
+  box-shadow: none !important;
+  border-color: #Ef9a9a !important;
+  background-color:#Ef9a9a!important;
+  
+}
+
+.outfitMannequinDislikeSVG{
+  fill: #Ef9a9a;
+}
+
+.outfitMannequinLikeButton, .outfitMannequinLikeButton:visited, .outfitMannequinLikeButton:focus{
+  border-width: 3px !important;
+  box-shadow: none !important;
+  border-color: #abffab !important;
+  background-color: white !important;
+}
+
+.outfitMannequinLikeButton:active, .outfitMannequinLikeButton:hover{
+  box-shadow: none !important;
+  border-color: #abffab !important;
+  background-color:#abffab!important;
+  
+}
+
+.outfitMannequinLikeSVG{
+  fill: #abffab
+}
+
+.outfitMannequinLikeButton:active .outfitMannequinLikeSVG, .outfitMannequinLikeButton:hover .outfitMannequinLikeSVG, .outfitMannequinDislikeButton:active .outfitMannequinDislikeSVG, .outfitMannequinDislikeButton:hover .outfitMannequinDislikeSVG{
+  fill: white
 }
