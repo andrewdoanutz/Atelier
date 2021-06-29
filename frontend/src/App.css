@@ -158,7 +158,7 @@ body{
 
 .uploadClothesButton, .uploadClothesButton:visited, .uploadClothesButton:focus{
   position: fixed;
-	right: 5%;
+	right: 4%;
 	bottom: 5%;
   padding: .5% 1.5% .5% 1.5%;
   border-width: 2px !important;
@@ -228,4 +228,12 @@ body{
 
 .outfitMannequinLikeButton:active .outfitMannequinLikeSVG, .outfitMannequinLikeButton:hover .outfitMannequinLikeSVG, .outfitMannequinDislikeButton:active .outfitMannequinDislikeSVG, .outfitMannequinDislikeButton:hover .outfitMannequinDislikeSVG{
   fill: white
+}
+
+.outfitDetailsImage{
+  height: 377px;
+}
+
+.outfitTabs, .outfitTabs:active, .outfitTabs:hover, .outfitTabs:visited, .outfitTabs:focus{
+  color: black !important;
 }
