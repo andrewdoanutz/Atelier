@@ -20,6 +20,7 @@ export default class Catalogue extends Component {
           details: {"details": {"dateUploaded": "12/2/1412", "category": "shirt"}, "pic": s1},
           clothes: [s1,s2,s3,s4,s5,s6,s1,s2,s3,s4,s5,s6,s1,s2,s3,s4,s5,s6]
         }
+        this.changeDetailsView = this.changeDetailsView.bind(this)
     }
 
     changeDetailsView(pic){
@@ -38,7 +39,7 @@ export default class Catalogue extends Component {
                 <Row>
                     <Col><CatalogueDetails details={this.state.details}/></Col>
                     <Col md={8}>
-                        <CatalogueGrid clothes={this.state.clothes} changeDetailsView={this.changeDetailsView.bind(this)}/>
+                        <CatalogueGrid clothes={this.state.clothes} changeDetailsView={this.changeDetailsView}/>
                         <UploadClothesButton />
                     </Col>
                 </Row>
