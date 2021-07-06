@@ -44,7 +44,7 @@ body{
   background-image: linear-gradient(to right, #9E8C3B 0%, #CAB34C 50%, #FFE57B 100%);
   margin: 2%;
   font-weight: bolder;
-  background-color:#9E8C3B!important;
+  background-color:#9E8C3B !important;
   color:white;
   border-color: #9E8C3B ;
   border-width: 0px;
@@ -158,12 +158,12 @@ body{
 
 .uploadClothesButton, .uploadClothesButton:visited, .uploadClothesButton:focus{
   position: fixed;
-	right: 4%;
+	right: 2.5%;
 	bottom: 5%;
   padding: .5% 1.5% .5% 1.5%;
   border-width: 2px !important;
   border-radius: 30%/50%;
-  font-weight: bolder;
+  font-weight: 550;
   box-shadow: none !important;
   border-color: #FFE57B !important;
   background-color: white !important;
@@ -172,10 +172,48 @@ body{
 
 .uploadClothesButton:active, .uploadClothesButton:hover{
   box-shadow: none !important;
-  border-color: #FFE57B !important;
-  color: black;
   background-color:#FFE57B!important;
-  
+  color: black;
+}
+
+.uploadClothesUploadButton, .uploadClothesUploadButton:visited, .uploadClothesUploadButton:focus{
+  border: solid !important;
+  border-width: 2px !important;
+  border-color: #FFE57B !important;
+  background-color: #FFE57B !important;
+  color: black !important;
+  padding: 8px 23px !important;
+  font-weight: 450 !important;
+}
+
+.uploadClothesUploadButton:hover{
+  background-color: white!important;
+}
+
+.uploadClothesUploadButton:active{
+  border: solid !important;
+  border-width: 2px !important;
+  border-color: #FFE57B !important;
+  background-color: #FFE57B !important;
+  color: black !important;
+  padding: 8px 23px !important;
+  font-weight: 450 !important;
+  color:white !important;
+}
+
+.uploadClothesModalButton, .uploadClothesModalButton:visited, .uploadModalClothesButton:focus{
+  border-width: 2px !important;
+  box-shadow: none !important;
+  border-color: #FFE57B !important;
+  background-color: white !important;
+  color: black;
+  font-weight: 450;
+}
+
+.uploadClothesModalButton:active, .uploadClothesModalButton:hover{
+  box-shadow: none !important;
+  background-color:#FFE57B!important;
+  color: black;
 }
 
 .outfitMannequinPic{
@@ -211,19 +249,19 @@ body{
 .outfitMannequinLikeButton, .outfitMannequinLikeButton:visited, .outfitMannequinLikeButton:focus{
   border-width: 3px !important;
   box-shadow: none !important;
-  border-color: #abffab !important;
+  border-color: #8ff78f !important;
   background-color: white !important;
 }
 
 .outfitMannequinLikeButton:active, .outfitMannequinLikeButton:hover{
   box-shadow: none !important;
-  border-color: #abffab !important;
-  background-color:#abffab!important;
+  border-color: #8ff78f !important;
+  background-color:#8ff78f!important;
   
 }
 
 .outfitMannequinLikeSVG{
-  fill: #abffab
+  fill:#8ff78f
 }
 
 .outfitMannequinLikeButton:active .outfitMannequinLikeSVG, .outfitMannequinLikeButton:hover .outfitMannequinLikeSVG, .outfitMannequinDislikeButton:active .outfitMannequinDislikeSVG, .outfitMannequinDislikeButton:hover .outfitMannequinDislikeSVG{
@@ -237,3 +275,4 @@ body{
 .outfitTabs, .outfitTabs:active, .outfitTabs:hover, .outfitTabs:visited, .outfitTabs:focus{
   color: black !important;
 }
+
