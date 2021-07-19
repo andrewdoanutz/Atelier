@@ -13,6 +13,7 @@ body{
   letter-spacing: .06em;
   font-size: xx-large;
   color: white !important;
+  padding-left: 10%;
 }
 
 .navbarTitle:hover{
@@ -132,7 +133,7 @@ body{
 }
 
 .landingRow{
-  padding-top: 3%;
+  padding-top: 2%;
 }
 
 .landingTitle{
@@ -276,3 +277,38 @@ body{
   color: black !important;
 }
 
+.accountFormControl:focus{
+  box-shadow:5px 5px #FFE57B !important;
+  border-color: #FFE57B !important;
+}
+
+.accountSaveButton, .accountSaveButton:visited, .accountSaveButton:focus{
+  border: solid !important;
+  border-width: 2px !important;
+  border-color: #FFE57B !important;
+  background-color: #FFE57B !important;
+  color: black !important;
+  font-weight: 450 !important;
+  box-shadow: none !important;
+}
+
+.accountSaveButton:hover{
+  background-color: white!important;
+}
+
+.accountSaveButton:active{
+  border: solid !important;
+  border-width: 2px !important;
+  border-color: #FFE57B !important;
+  background-color: #FFE57B !important;
+  color: black !important;
+  font-weight: 450 !important;
+  color:white !important;
+}
+
+.landingLinkButton{
+  padding:0%;
+  padding-bottom: 1%;
+  font-size: 100%;
+  box-shadow: none !important;
+}

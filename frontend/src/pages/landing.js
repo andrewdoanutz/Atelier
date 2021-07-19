@@ -20,7 +20,7 @@ export default class Landing extends Component {
               <Col md={3}></Col>
               <Col md={6}>
                 <Row></Row>
-                <Row style={{ paddingTop: "35%", textAlign: "center", paddingBottom: "35%" }}>
+                <Row style={{ paddingTop: "25%", textAlign: "center", paddingBottom: "35%" }}>
                   <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
                     <Card.Body>
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
@@ -45,8 +45,7 @@ export default class Landing extends Component {
             <Row>
               <Col md={3}></Col>
               <Col md={6}>
-                <Row></Row>
-                <Row style={{ paddingTop: "35%", textAlign: "center", paddingBottom: "35%" }}>
+                <Row style={{ paddingTop: "25%", textAlign: "center", paddingBottom: "35%" }}>
                   <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
                     <Card.Body>
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
@@ -55,26 +54,16 @@ export default class Landing extends Component {
                           <Row>
                             <Col>
                               <Form>
-                                <Form.Row style={{marginBottom: '15px'}}>
-                                  <Form.Control type="text" id="login" placeholder="Username / Email" required></Form.Control>
+                                <Form.Row style={{paddingBottom: "2%"}}>
+                                  <Form.Control className="accountFormControl" type="email" id="login" placeholder="email@gmail.com" required></Form.Control>
                                 </Form.Row>
-                                <Form.Row>
-                                  <InputGroup>
-                                    <Form.Control type={this.state.showPassword ? 'text' : 'password'} placeholder="Password"></Form.Control>
-                                    <InputGroup.Append role="button">
-                                      <InputGroup.Text className={`fa ${this.state.showPassword ? 'fa-eye-slash' : 'fa-eye'}`} onClick={() => this.setState({ showPassword: !this.state.showPassword })}></InputGroup.Text>
-                                    </InputGroup.Append>
-                                  </InputGroup>
+                                <Form.Row style={{paddingBottom: "2%"}}>
+                                    <Form.Control className="accountFormControl" type={this.state.showPassword ? 'text' : 'password'} placeholder="Password" required></Form.Control>
                                 </Form.Row>
                                 <Form.Group>
                                   <Row>
-                                    <Col>
-                                      <div className="text-left">
-                                        <a className="text" href="#">Forgot password?</a>
-                                      </div>
-                                    </Col>
-                                    <Col className="text-right">
-                                      <Form.Check type="checkbox" id="rememberCheck" label="Remember Me" />
+                                    <Col style={{textAlign:"right"}}>
+                                    <Button variant="link" className="landingLinkButton" onClick={() => this.setState({ pageState: "forgotPassword" })}>Forgot Password?</Button>
                                     </Col>
                                   </Row>
                                 </Form.Group>
@@ -82,13 +71,15 @@ export default class Landing extends Component {
                             </Col>
                           </Row>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
-                            <Link to="/outfit">
-                              <Button className="landingLoginButton">Login</Button>
-                            </Link>
+                            <Col>
+                              <Link to="/outfit">
+                                <Button className="landingLoginButton">Login</Button>
+                              </Link>
+                            </Col>
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Don't have an account? <a className="text" href="#" onClick={() => this.setState({ pageState: "signUp" })}>Sign Up</a>
+                              Don't have an account? <Button variant="link" className="landingLinkButton" onClick={() => this.setState({ pageState: "signUp" })}>Sign Up</Button>
                             </small>
                           </Row>
                         </Col>
@@ -108,36 +99,102 @@ export default class Landing extends Component {
             <Row>
               <Col md={3}></Col>
               <Col md={6}>
-                <Row></Row>
-                <Row style={{ paddingTop: "35%", textAlign: "center", paddingBottom: "35%" }}>
+                <Row style={{ paddingTop: "25%", textAlign: "center", paddingBottom: "35%" }}>
                   <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
                     <Card.Body>
                       <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
                       <Container>
                         <Col>
                           <Form>
-                            <Form.Group>
-                              <Form.Control type="email" id="email" placeholder="Email" />
-                            </Form.Group>
-                            <Form.Group>
-                              <Form.Control type="text" id="username" placeholder="Username" />
-                            </Form.Group>
-                            <Form.Group>
-                              <Form.Control type="password" id="password" placeholder="Password" />
-                            </Form.Group>
-                            <Form.Group>
-                              <Form.Control type="password" id="confirmPassword" placeholder="Re-enter Password" />
-                            </Form.Group>
+                            <Form.Row style={{paddingBottom: "2%"}}>
+                              <Form.Control className="accountFormControl" type="email" id="email" placeholder="Email" />
+                            </Form.Row>
+                            <Form.Row style={{paddingBottom: "2%"}}>
+                              <Form.Control className="accountFormControl" type="password" id="password" placeholder="Password" />
+                            </Form.Row>
+                            <Form.Row style={{paddingBottom: "2%"}}>
+                              <Form.Control className="accountFormControl" type="password" id="confirmPassword" placeholder="Re-enter Password" />
+                            </Form.Row>
                           </Form>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
-                            <Link to="/outfit">
-                              <Button className="landingLoginButton">Sign Up</Button>
-                            </Link>
+                            <Col>
+                              <Link to="/outfit">
+                                <Button className="landingLoginButton">Sign Up</Button>
+                              </Link>
+                            </Col>
                           </Row>
                           <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
                             <small>
-                              Already have an account? <a className="text" href="#" onClick={() => (this.setState({ pageState: "login" }))}>Login</a>
+                              Already have an account? <Button variant="link" className="landingLinkButton" onClick={() => this.setState({ pageState: "login" })}>Login</Button>
                             </small>
+                          </Row>
+                        </Col>
+                      </Container>
+                    </Card.Body>
+                  </Card>
+                </Row>
+                <Row></Row>
+              </Col>
+              <Col md={3}></Col>
+            </Row>
+          </Container>
+        )
+      case 'forgotPassword':
+        return (
+          <Container className="justify-content-md-center">
+            <Row>
+              <Col md={3}></Col>
+              <Col md={6}>
+                <Row></Row>
+                <Row style={{ paddingTop: "25%", textAlign: "center", paddingBottom: "50%" }}>
+                  <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
+                    <Card.Body>
+                      <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
+                      <Container>
+                        <Col>
+                          <Form>
+                            <Form.Row style={{paddingBottom: "2%"}}>
+                              <Form.Control className="accountFormControl" type="email" id="email" placeholder="Email" />
+                            </Form.Row>
+                          </Form>
+                          <Row id="gradButton" className="landingRow justify-content-md-center" >
+                            <Col>
+                                <Button className="landingLoginButton" onClick={() => this.setState({ pageState: "emailReset" })}>Reset</Button>
+                            </Col>
+                          </Row>
+                          <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
+                            <small>
+                              Remembered your password? <Button variant="link" className="landingLinkButton" onClick={() => this.setState({ pageState: "login" })}>Login</Button>
+                            </small>
+                          </Row>
+                        </Col>
+                      </Container>
+                    </Card.Body>
+                  </Card>
+                </Row>
+                <Row></Row>
+              </Col>
+              <Col md={3}></Col>
+            </Row>
+          </Container>
+        )
+      case 'emailReset':
+        return (
+          <Container className="justify-content-md-center">
+            <Row>
+              <Col md={3}></Col>
+              <Col md={6}>
+                <Row></Row>
+                <Row style={{ paddingTop: "25%", textAlign: "center", paddingBottom: "50%" }}>
+                  <Card className="shadow" style={{ width: "100%", textAlign: "center", paddingTop: "5%" }}>
+                    <Card.Body>
+                      <Card.Title as="h1" className="landingTitle">Atelier</Card.Title>
+                      <Container>
+                        <Col>
+                          <Row className="d-flex justify-content-center text-muted" style={{ paddingBottom: "10%" }}>
+                              <h4>An email has been sent!</h4>
+                              <br/>
+                              <h4>Return to  <Button variant="link" className="landingLinkButton" onClick={() => this.setState({ pageState: "login" })}>Login</Button></h4>
                           </Row>
                         </Col>
                       </Container>
