@@ -33,6 +33,7 @@ export default class Outfit extends Component {
               <Col md={8}>
                 <OutfitDetails topDetails={this.state.topDetails} pantsDetails={this.state.pantsDetails} shoesDetails={this.state.shoesDetails} />
               </Col>
+              <Col md={1}></Col>
           </Row>
       </Container>
       </>

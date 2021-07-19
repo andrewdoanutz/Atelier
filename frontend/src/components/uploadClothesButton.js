@@ -38,10 +38,11 @@ export default class UploadClothesButton extends Component {
         <Button className="uploadClothesButton" onClick={this.handleOpen}>
           Upload <br/> Clothes
         </Button>
-
+        
         <Modal show={this.state.showModal} onHide={this.handleClose}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>Upload Clothes</Modal.Title>
+            <Button variant="white" onClick={()=>{this.setState({showModal:false})}} style={{boxShadow:"none"}}>X</Button>
           </Modal.Header>
           <Modal.Body>
             <ImageUploader
