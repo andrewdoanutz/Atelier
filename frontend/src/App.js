@@ -7,6 +7,7 @@ import Account from "./pages/account"
 import Outfit from "./pages/outfit"
 import Catalogue from "./pages/catalogue"
 import cookie from "react-cookies"
+import TestAPI from './pages/test';
 
 function App() {
   cookie.save(
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/account" component={Account} />
           <Route exact path="/outfit" component={Outfit} />
           <Route exact path="/catalogue" component={Catalogue} />
+          <Route exact path="/test" component={TestAPI} />
         </div>
       </BrowserRouter>
     </div>
