@@ -7,8 +7,8 @@ app = Flask(__name__, static_url_path='', static_folder='frontend/public')
 CORS(app) #comment this on deployment
 api = Api(app)
 
-@app.route("/", defaults={'path':''})
-def serve(path):
-    return send_from_directory(app.static_folder,'index.html')
+@app.route("/")
+def index():
+    pass
 
-api.add_resource(DatabaseUserAPI, '/api/db/user')
+api.add_resource(DatabaseUserAPI, "/api/db/getuser")

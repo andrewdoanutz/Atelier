@@ -10,7 +10,7 @@ export default class TestAPI extends Component {
       }
     
     componentDidMount(){
-        axios.get('http://localhost:5000/api/db/user').then(response => {
+        axios.post('http://localhost:5000/api/db/getuser', {email: "test"}).then(response => {
             console.log("SUCCESS", response)
             this.setState({getMessage: response})
         }).catch(error => {
@@ -23,9 +23,7 @@ export default class TestAPI extends Component {
         <>
         <p>React + Flask Tutorial</p>
         <div>{this.state.getMessage.status === 200 ? 
-          this.state.getMessage.data.users.map((user,ind) => {
-            return <h3 key={ind}>{user}</h3>
-          })
+          <div>{this.state.getMessage.data.user}</div>
           :
           <h3>LOADING</h3>}</div>
             

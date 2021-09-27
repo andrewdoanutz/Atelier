@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Row, Card, Button, Container, Form, InputGroup } from "react-bootstrap"
+import { Col, Row, Card, Button, Container, Form } from "react-bootstrap"
 import { Link } from "react-router-dom";
 
 export default class Landing extends Component {
