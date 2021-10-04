@@ -10,7 +10,7 @@ export default class TestAPI extends Component {
       }
     
     componentDidMount(){
-        axios.post('http://localhost:5000/api/db/getuser', {email: "test"}).then(response => {
+        axios.get('http://localhost:5000/api/db/getuser').then(response => {
             console.log("SUCCESS", response)
             this.setState({getMessage: response})
         }).catch(error => {
