@@ -46,6 +46,7 @@ export default class CatalogueGrid extends Component {
             </Col>
         )
     }
+    
     render() {
         return (
         <Container>
