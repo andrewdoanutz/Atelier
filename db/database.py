@@ -17,3 +17,8 @@ class Database:
             print(f"The error '{e}' occurred")
 
         return connection
+    
+    def convertToBinaryData(self, filename):
+        with open(filename, 'rb') as file:
+            blobData = file.read()
+        return blobData

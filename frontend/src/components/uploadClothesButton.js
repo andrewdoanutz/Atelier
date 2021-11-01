@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Modal } from "react-bootstrap"
 import ImageUploader from 'react-images-upload';
+import axios from 'axios';
 
 export default class UploadClothesButton extends Component {
   constructor(props) {
@@ -27,6 +28,12 @@ export default class UploadClothesButton extends Component {
   }
   
   handleChange(pictureFiles, pictureDataURLs) {
+    axios.post('http://localhost:5000/api/db/saveimage', {files: pictureDataURLs}).then(response => {
+            console.log("SUCCESS", response)
+            this.setState({getMessage: response})
+        }).catch(error => {
+            console.log(error)
+        })
     this.setState({
       uploadedPictures: pictureFiles
     })
