@@ -59,7 +59,7 @@ class ClothingClassifier:
             print(prediction)
         return labeledPredictions
 
-images = ["/Users/andrew/Atelier/frontend/src/images/shirt7.jpeg", "/Users/andrew/Atelier/frontend/src/images/shoe2.jpeg"]
-classifier = ClothingClassifier()
+# images = ["/Users/andrew/Atelier/frontend/src/images/shirt7.jpeg", "/Users/andrew/Atelier/frontend/src/images/shoe2.jpeg"]
+# classifier = ClothingClassifier()
 
-classifier.predictImages(images)
+# classifier.predictImages(images)
