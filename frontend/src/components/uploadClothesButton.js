@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Modal, Card, Container } from "react-bootstrap"
 import ImageUploading from 'react-images-uploading';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 export default class UploadClothesButton extends Component {
   constructor(props) {
@@ -10,11 +11,13 @@ export default class UploadClothesButton extends Component {
       showModal: false,
       uploadedPictures: []
     }
+    this.cookies = new Cookies();
+
     this.handleOpen = this.handleOpen.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleChange = this.handleChange.bind(this)
-
-    this.onChange = this.onChange.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSave = this.handleSave.bind(this)
   }
 
   handleOpen(){
@@ -28,26 +31,27 @@ export default class UploadClothesButton extends Component {
       showModal: false
     })
   }
-  
-  handleChange(pictureFiles, pictureDataURLs) {
-    axios.post('http://localhost:5000/api/db/saveimage', {files: pictureDataURLs}).then(response => {
-            console.log("SUCCESS", response)
-            this.setState({getMessage: response})
-        }).catch(error => {
-            console.log(error)
-        })
-    this.setState({
-      uploadedPictures: pictureFiles
-    })
-  }
 
-
-  onChange(imageList, addUpdateIndex) {
-    console.log(imageList, addUpdateIndex);
+  handleChange(imageList, addUpdateIndex) {
     this.setState({
       uploadedPictures: imageList
     })
   }
+
+  handleSave(){
+    var picsToPOST = []
+    this.state.uploadedPictures.map(pic => {
+      picsToPOST.push(pic["dataURL"].substr(pic["dataURL"].indexOf(',') + 1))
+    })
+    this.setState({showModal: false})
+    axios.post('http://localhost:5000/api/db/saveimage', {files: picsToPOST, email: this.cookies.get("email")}).then(response => {
+      console.log("SUCCESS", response)
+    }).catch(error => {
+        console.log(error)
+        this.setState({showModal: false})
+    })
+  }
+
   render() {
     return (
       <>
@@ -58,7 +62,7 @@ export default class UploadClothesButton extends Component {
         <Modal show={this.state.showModal} onHide={this.handleClose} >
           <Modal.Header>
             <Modal.Title>Upload Clothes</Modal.Title>
-            <Button variant="white" onClick={()=>{this.setState({showModal:false})}} style={{boxShadow:"none"}}>X</Button>
+            <Button variant="white" onClick={this.handleClose} style={{boxShadow:"none"}}>X</Button>
           </Modal.Header>
           <Modal.Body>
             {/* <ImageUploader
@@ -75,9 +79,9 @@ export default class UploadClothesButton extends Component {
             <ImageUploading
               multiple
               value={this.state.uploadedPictures}
-              onChange={this.onChange}
+              onChange={this.handleChange}
               maxNumber={69}
-              dataURLKey="data_url"
+              dataURLKey="dataURL"
             >
               {({
                 imageList,
@@ -86,7 +90,6 @@ export default class UploadClothesButton extends Component {
                 onImageUpdate,
                 onImageRemove,
               }) => (
-                // write your building UI
                 <div>
                   <Button onClick={onImageUpload} className="uploadClothesModalButton">Upload </Button>
                   &nbsp;
@@ -96,9 +99,9 @@ export default class UploadClothesButton extends Component {
                       <Card key={index} className="shadow" style={{padding: "0%", maxWidth: "100%"}}>
                         <Card.Body>
                             <Container>
-                                    <div><img src={image['data_url']} style={{maxWidth: "100%"}}/></div>
+                                    <div><img src={image['dataURL']} style={{maxWidth: "100%"}}/></div>
                                     <div style={{paddingTop:"5%", display: "flex", justifyContent: "center"}}>
-                                      <Button className="uploadClothesSecondaryModalButton" onClick={() => onImageUpdate(index)}>Update</Button>
+                                      <Button className="uploadClothesSecondaryModalButton" onClick={() => onImageUpdate(index)}>Replace</Button>
                                       <Button className="uploadClothesSecondaryModalButton" onClick={() => onImageRemove(index)}>Remove</Button>
                                     </div>
                             </Container>
@@ -111,7 +114,7 @@ export default class UploadClothesButton extends Component {
             </ImageUploading>
           </Modal.Body>
           <Modal.Footer>
-            <Button className="uploadClothesModalButton" onClick={this.handleClose}>
+            <Button className="uploadClothesModalButton" onClick={this.handleSave}>
               Save Changes
             </Button>
           </Modal.Footer>

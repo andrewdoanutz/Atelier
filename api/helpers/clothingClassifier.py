@@ -4,6 +4,8 @@ import tensorflow as tf
 # Helper libraries
 import numpy as np
 from PIL import Image
+from io import BytesIO
+import base64
 
 #https://www.tensorflow.org/tutorials/keras/classification
 
@@ -43,7 +45,7 @@ class ClothingClassifier:
     def __formatImages(self, images):
         formattedImages = np.empty((len(images), 28, 28))
         for i, image in enumerate(images):
-            openedImage = Image.open(image).convert('L')
+            openedImage = Image.open(BytesIO(base64.b64decode(image))).convert('L')
             resizedImage = openedImage.resize((28, 28), Image.LANCZOS)
             formattedImages[i] = np.asarray(resizedImage) / 255.0
         return formattedImages 
