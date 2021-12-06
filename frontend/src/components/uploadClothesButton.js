@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Modal } from "react-bootstrap"
-import ImageUploader from 'react-images-upload';
+import { Button, Modal, Card, Container } from "react-bootstrap"
+import ImageUploading from 'react-images-uploading';
 import axios from 'axios';
 
 export default class UploadClothesButton extends Component {
@@ -13,6 +13,8 @@ export default class UploadClothesButton extends Component {
     this.handleOpen = this.handleOpen.bind(this)
     this.handleClose = this.handleClose.bind(this)
     this.handleChange = this.handleChange.bind(this)
+
+    this.onChange = this.onChange.bind(this)
   }
 
   handleOpen(){
@@ -39,6 +41,13 @@ export default class UploadClothesButton extends Component {
     })
   }
 
+
+  onChange(imageList, addUpdateIndex) {
+    console.log(imageList, addUpdateIndex);
+    this.setState({
+      uploadedPictures: imageList
+    })
+  }
   render() {
     return (
       <>
@@ -46,13 +55,13 @@ export default class UploadClothesButton extends Component {
           Upload <br/> Clothes
         </Button>
         
-        <Modal show={this.state.showModal} onHide={this.handleClose}>
+        <Modal show={this.state.showModal} onHide={this.handleClose} >
           <Modal.Header>
             <Modal.Title>Upload Clothes</Modal.Title>
             <Button variant="white" onClick={()=>{this.setState({showModal:false})}} style={{boxShadow:"none"}}>X</Button>
           </Modal.Header>
           <Modal.Body>
-            <ImageUploader
+            {/* <ImageUploader
                 fileContainerStyle={{boxShadow:"none"}}
                 buttonText='Choose Images'
                 buttonClassName="uploadClothesUploadButton"
@@ -62,7 +71,44 @@ export default class UploadClothesButton extends Component {
                 withPreview={true}
                 withLabel={false}
                 fileSizeError="Max file size is 5mb"
-            />
+            /> */}
+            <ImageUploading
+              multiple
+              value={this.state.uploadedPictures}
+              onChange={this.onChange}
+              maxNumber={69}
+              dataURLKey="data_url"
+            >
+              {({
+                imageList,
+                onImageUpload,
+                onImageRemoveAll,
+                onImageUpdate,
+                onImageRemove,
+              }) => (
+                // write your building UI
+                <div>
+                  <Button onClick={onImageUpload} className="uploadClothesModalButton">Upload </Button>
+                  &nbsp;
+                  <Button className="uploadClothesSecondaryModalButton" onClick={onImageRemoveAll}>Remove all images</Button>
+                  {imageList.map((image, index) => (
+                    <div style={{paddingTop: "4%", display: "flex", justifyContent: "center"}}>
+                      <Card key={index} className="shadow" style={{padding: "0%", maxWidth: "100%"}}>
+                        <Card.Body>
+                            <Container>
+                                    <div><img src={image['data_url']} style={{maxWidth: "100%"}}/></div>
+                                    <div style={{paddingTop:"5%", display: "flex", justifyContent: "center"}}>
+                                      <Button className="uploadClothesSecondaryModalButton" onClick={() => onImageUpdate(index)}>Update</Button>
+                                      <Button className="uploadClothesSecondaryModalButton" onClick={() => onImageRemove(index)}>Remove</Button>
+                                    </div>
+                            </Container>
+                        </Card.Body>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </ImageUploading>
           </Modal.Body>
           <Modal.Footer>
             <Button className="uploadClothesModalButton" onClick={this.handleClose}>
