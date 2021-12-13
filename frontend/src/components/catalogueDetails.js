@@ -18,7 +18,6 @@ export default class CatalogueDetails extends Component {
                                     <Card.Title as="h6">Details</Card.Title>
                                     <Container>
                                         <div>Category: {this.props.details["details"]["category"]}</div>
-                                        <div>Date Uploaded: {this.props.details["details"]["dateUploaded"]}</div>
                                     </Container>
                                     </Card.Body>
                                 </Card>

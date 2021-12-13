@@ -6,17 +6,9 @@ import Landing from "./pages/landing"
 import Account from "./pages/account"
 import Outfit from "./pages/outfit"
 import Catalogue from "./pages/catalogue"
-import cookie from "react-cookies"
 import TestAPI from './pages/test';
 
 function App() {
-  cookie.save(
-    'login',
-    true,
-    {
-      path: '/',
-    }
-  )
   return (
     <div>
       <BrowserRouter>

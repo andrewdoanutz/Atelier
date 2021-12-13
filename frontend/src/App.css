@@ -138,9 +138,21 @@ body{
 
 .landingTitle{
   font-size: 400%;
-  padding-bottom: 10%;
+  padding-bottom: 3%;
 }
 
+.landingLinkButton{
+  padding:0%;
+  padding-bottom: 1%;
+  font-size: 100%;
+  box-shadow: none !important;
+}
+
+.landingError{
+  padding-bottom:1%;
+  margin: 0%;
+
+}
 .catalogueGridImage{
   height: 150px;
   width: 150px;
@@ -202,19 +214,38 @@ body{
   color:white !important;
 }
 
-.uploadClothesModalButton, .uploadClothesModalButton:visited, .uploadModalClothesButton:focus{
+.uploadClothesModalButton, .uploadClothesModalButton:visited, .uploadClothesModalButton:focus{
   border-width: 2px !important;
   box-shadow: none !important;
   border-color: #FFE57B !important;
-  background-color: white !important;
-  color: black;
+  background-color: #FFE57B !important;
+  color: black !important;
   font-weight: 450;
 }
 
 .uploadClothesModalButton:active, .uploadClothesModalButton:hover{
   box-shadow: none !important;
+  background-color:white!important;
+  color: black !important;
+}
+
+.uploadClothesSecondaryModalButton, .uploadClothesSecondaryModalButton:visited, .uploadClothesSecondaryModalButton:focus{
+  border-width: 2px !important;
+  box-shadow: none !important;
+  border-color: #FFE57B !important;
+  background-color: white !important;
+  color: black !important;
+  font-weight: 450;
+}
+
+.uploadClothesSecondaryModalButton:active, .uploadClothesSecondaryModalButton:hover{
+  box-shadow: none !important;
   background-color:#FFE57B!important;
-  color: black;
+  color: black !important;
+}
+
+.uploadClothesModalItem{
+  border-color: #EF9A9A;
 }
 
 .outfitMannequinPic{
@@ -306,9 +337,3 @@ body{
   color:white !important;
 }
 
-.landingLinkButton{
-  padding:0%;
-  padding-bottom: 1%;
-  font-size: 100%;
-  box-shadow: none !important;
-}
