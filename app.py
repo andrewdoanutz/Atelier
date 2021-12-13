@@ -7,6 +7,7 @@ from api.dbVerifyUserAPI import DatabaseVerifyUserAPI
 from api.dbUserAPI import DatabaseUserAPI
 from api.dbForgotPasswordAPI import DatabaseForgotPasswordAPI
 from api.dbSaveImageAPI import DatabaseSaveImageAPI
+from api.dbGetImagesAPI import DatabaseGetImagesAPI
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/public')
 CORS(app) #comment this on deployment
@@ -21,3 +22,4 @@ api.add_resource(DatabaseVerifyUserAPI, "/api/db/verifyuser")
 api.add_resource(DatabaseUserAPI, "/api/db/user")
 api.add_resource(DatabaseForgotPasswordAPI, "/api/db/forgotpassword")
 api.add_resource(DatabaseSaveImageAPI, "/api/db/saveimage")
+api.add_resource(DatabaseGetImagesAPI, "/api/db/getimages")

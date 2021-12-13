@@ -5,8 +5,12 @@ import CatalogueGridCell from './catalogueGridCell'
 export default class CatalogueGrid extends Component {
     constructor(props) {
         super(props)
+        let clothesImages = []
+        this.props.clothes.forEach(pic => {
+            clothesImages.push(pic[0])
+        })
         this.state = {
-          clothes: this.props.clothes
+          clothes: clothesImages
         }
     }
 

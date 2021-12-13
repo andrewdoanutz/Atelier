@@ -39,17 +39,20 @@ export default class UploadClothesButton extends Component {
   }
 
   handleSave(){
-    var picsToPOST = []
-    this.state.uploadedPictures.map(pic => {
-      picsToPOST.push(pic["dataURL"].substr(pic["dataURL"].indexOf(',') + 1))
-    })
-    this.setState({showModal: false})
-    axios.post('http://localhost:5000/api/db/saveimage', {files: picsToPOST, email: this.cookies.get("email")}).then(response => {
+    if (this.state.uploadedPictures && this.state.uploadedPictures.length){
+      var picsToPOST = []
+      this.state.uploadedPictures.map(pic => {
+        picsToPOST.push(pic["dataURL"])
+      })
+      axios.post('http://localhost:5000/api/db/saveimage', {files: picsToPOST, email: this.cookies.get("email")}).then(response => {
       console.log("SUCCESS", response)
-    }).catch(error => {
-        console.log(error)
-        this.setState({showModal: false})
-    })
+      window.location.reload();
+      }).catch(error => {
+          console.log(error)
+          this.setState({showModal: false})
+      })
+    }
+    this.setState({showModal: false})
   }
 
   render() {
@@ -65,17 +68,6 @@ export default class UploadClothesButton extends Component {
             <Button variant="white" onClick={this.handleClose} style={{boxShadow:"none"}}>X</Button>
           </Modal.Header>
           <Modal.Body>
-            {/* <ImageUploader
-                fileContainerStyle={{boxShadow:"none"}}
-                buttonText='Choose Images'
-                buttonClassName="uploadClothesUploadButton"
-                onChange={this.handleChange}
-                imgExtension={['.jpg', '.gif', '.png', '.jpeg']}
-                maxFileSize={5242880}
-                withPreview={true}
-                withLabel={false}
-                fileSizeError="Max file size is 5mb"
-            /> */}
             <ImageUploading
               multiple
               value={this.state.uploadedPictures}

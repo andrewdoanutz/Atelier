@@ -7,12 +7,11 @@ from api.dbAPI import DatabaseAPI
 from db.database import Database
 from api.helpers.clothingClassifier import ClothingClassifier
 
-class DatabaseSaveImageAPI(DatabaseAPI):
+class DatabaseGetImagesAPI(DatabaseAPI):
 
   def post(self):
     parser = reqparse.RequestParser()
     parser.add_argument("email", type=str)
-    parser.add_argument("files", action="append")
 
     args = parser.parse_args()
     user = self.db.conn.execute("SELECT * FROM USERS WHERE email=:email",
@@ -22,17 +21,8 @@ class DatabaseSaveImageAPI(DatabaseAPI):
       print("User not found:", args["email"])
       return make_response(jsonify(error = "User does not exist"), 404)
 
-    classifier = ClothingClassifier()
-    strippedImages = []
-    for f in args["files"]:
-      strippedImages.append(f.split(",")[1])
-    labels = classifier.predictImages(strippedImages)
-    
-    for f, label in zip(args["files"], labels):
-      self.db.conn.execute("INSERT INTO IMAGES (user_email, image, label) VALUES (:email, :image, :label)",
-      {"email": args["email"], "image": f, "label": label[0]})
-
-    self.db.conn.commit()
+    images = self.db.conn.execute("SELECT image, label FROM IMAGES WHERE user_email=:email",
+     {"email": args["email"]}).fetchall()
     self.db.conn.close()
 
-    return jsonify(status = "success")
+    return jsonify(status = "success", images = images)
