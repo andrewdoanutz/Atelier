@@ -56,7 +56,8 @@ export default class Landing extends Component {
 
   render() {
     if (this.cookies.get("email") !== undefined)
-      return (<Redirect push to="/outfit" />)
+      // return (<Redirect push to="/outfit" />)
+      return (<Redirect push to="/catalogue" />)
       
     switch (this.state.pageState) {
       case 'landing':
