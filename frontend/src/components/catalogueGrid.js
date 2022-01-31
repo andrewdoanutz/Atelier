@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Col, Row, Container, Button} from "react-bootstrap"
+import { Col, Row, Button, Accordion} from "react-bootstrap"
 import CatalogueGridCell from './catalogueGridCell'
 
 export default class CatalogueGrid extends Component {
@@ -36,27 +36,30 @@ export default class CatalogueGrid extends Component {
     }
 
     createGrid() {
-        return (   
-            <Col>{Object.keys(this.state.clothes).map((key)=>{
+        return(
+            <Col>
+            {Object.keys(this.state.clothes).map((key, clothInd)=>{
                 return(
-                    <>
-                    <h1>{this.formatClothesCategory(key)}</h1>
-                    {this.state.clothes[key].map((arr)=>{
-                        return ( 
-                            <Row style={{paddingBottom:"2%"}}>
-                            {arr.map((pic, ind) => {
-                            return (
-                                <Col md={4} style={{paddingLeft:"1%", paddingRight:"1%"}}>
-                                    <Button className="catalogueGridCellButton" onClick={()=>{ this.props.changeDetailsView(pic) }}>
-                                        <CatalogueGridCell id={ind} pic={pic} />
-                                    </Button>
-                                </Col>
-                            )
-                            })}
-                            </Row>
-                        )})
-                    }
-                    </>
+                    <Accordion.Item eventKey={clothInd.toString()}>
+                        <Accordion.Header>{this.formatClothesCategory(key)}</Accordion.Header>
+                        <Accordion.Body>
+                        {this.state.clothes[key].map((arr)=>{
+                            return ( 
+                                <Row style={{paddingBottom:"2%"}}>
+                                {arr.map((pic, ind) => {
+                                return (
+                                    <Col md={4} style={{paddingLeft:"1%", paddingRight:"1%"}}>
+                                        <Button className="catalogueGridCellButton" onClick={()=>{ this.props.changeDetailsView(pic) }}>
+                                            <CatalogueGridCell id={ind} pic={pic} />
+                                        </Button>
+                                    </Col>
+                                )
+                                })}
+                                </Row>
+                            )})
+                        }
+                        </Accordion.Body>
+                    </Accordion.Item>
                 )
             })}
             </Col>
@@ -65,9 +68,9 @@ export default class CatalogueGrid extends Component {
     
     render() {
         return (
-        <Container>
+        <Accordion defaultActiveKey="0" flush="true">
             {this.createGrid()}
-        </Container>
+        </Accordion>
         )
     }
 }
