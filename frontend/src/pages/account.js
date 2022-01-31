@@ -23,14 +23,14 @@ export default class Account extends Component {
                     <Col>
                         <Row>
                           <Form>
-                            <Form.Row  controlId="accountForm.emailInput">
+                            <Form.Group  controlId="accountForm.emailInput">
                               <Form.Label>Email Address</Form.Label>
                               <Form.Control className="accountFormControl" type="email" placeholder="email@xyz.com" defaultValue={this.state.email} />
-                            </Form.Row>
-                            <Form.Row controlId="accountForm.passwordInput" style={{paddingTop:"3%"}}>
+                            </Form.Group>
+                            <Form.Group controlId="accountForm.passwordInput" style={{paddingTop:"3%"}}>
                               <Form.Label>Password</Form.Label>
                               <Form.Control className="accountFormControl" type="password" placeholder="test" defaultValue={this.state.password} />
-                            </Form.Row>
+                            </Form.Group>
                           </Form>
                         </Row>
                         <Row style={{paddingTop:"3%"}}>

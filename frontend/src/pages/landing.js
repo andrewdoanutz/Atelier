@@ -56,7 +56,8 @@ export default class Landing extends Component {
 
   render() {
     if (this.cookies.get("email") !== undefined)
-      return (<Redirect push to="/outfit" />)
+      // return (<Redirect push to="/outfit" />)
+      return (<Redirect push to="/catalogue" />)
       
     switch (this.state.pageState) {
       case 'landing':
@@ -101,12 +102,12 @@ export default class Landing extends Component {
                           <Row>
                             <Col>
                               <Form>
-                                <Form.Row style={{paddingBottom: "2%"}}>
+                                <Form.Group style={{paddingBottom: "2%"}}>
                                   <Form.Control className="accountFormControl" type="email" value={this.state.email} onChange={text => this.setState({ email: text.target.value })} placeholder="email@gmail.com" required></Form.Control>
-                                </Form.Row>
-                                <Form.Row style={{paddingBottom: "2%"}}>
+                                </Form.Group>
+                                <Form.Group style={{paddingBottom: "2%"}}>
                                     <Form.Control className="accountFormControl" type="password" value={this.state.password} onChange={text => this.setState({ password: text.target.value })}  placeholder="Password" required></Form.Control>
-                                </Form.Row>
+                                </Form.Group>
                                 <Form.Group>
                                   <Row>
                                     <Col style={{textAlign:"right"}}>
@@ -152,15 +153,15 @@ export default class Landing extends Component {
                       <Container>
                         <Col>
                           <Form>
-                            <Form.Row style={{paddingBottom: "2%"}}>
+                            <Form.Group style={{paddingBottom: "2%"}}>
                               <Form.Control className="accountFormControl" type="email" value={this.state.email} onChange={text => this.setState({ email: text.target.value })} placeholder="Email" />
-                            </Form.Row>
-                            <Form.Row style={{paddingBottom: "2%"}}>
+                            </Form.Group>
+                            <Form.Group style={{paddingBottom: "2%"}}>
                               <Form.Control className="accountFormControl" type="password" value={this.state.password} onChange={text => this.setState({ password: text.target.value })} placeholder="Password" />
-                            </Form.Row>
-                            <Form.Row style={{paddingBottom: "2%"}}>
+                            </Form.Group>
+                            <Form.Group style={{paddingBottom: "2%"}}>
                               <Form.Control className="accountFormControl" type="password" value={this.state.confirmPassword} onChange={text => this.setState({ confirmPassword: text.target.value })} placeholder="Re-enter Password" />
-                            </Form.Row>
+                            </Form.Group>
                           </Form>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
                             <Col>
@@ -198,9 +199,9 @@ export default class Landing extends Component {
                       <Container>
                         <Col>
                           <Form>
-                            <Form.Row style={{paddingBottom: "2%"}}>
+                            <Form.Group style={{paddingBottom: "2%"}}>
                               <Form.Control className="accountFormControl" type="email" value={this.state.email} onChange={text => this.setState({ email: text.target.value })} placeholder="Email" />
-                            </Form.Row>
+                            </Form.Group>
                           </Form>
                           <Row id="gradButton" className="landingRow justify-content-md-center" >
                             <Col>
