@@ -13,6 +13,13 @@ export default class CatalogueDetails extends Component {
         this.onChangeDetails = this.onChangeDetails.bind(this)
         this.detailsUpdateOnClick = this.detailsUpdateOnClick.bind(this)
     }
+    componentDidUpdate(prevProps) {
+        if (this.props.details["pic"] !== prevProps.details["pic"]) {
+            this.setState({
+                category: this.props.details["details"]["category"]
+            })
+        }
+      }
 
     detailsUpdateOnClick(){
         axios.patch('http://localhost:5000/api/db/saveimage', {category: this.state.category, email: this.cookies.get("email"), image: this.props.details["pic"]}).then(response => {
@@ -20,7 +27,7 @@ export default class CatalogueDetails extends Component {
             }).catch(error => {
                 console.log(error)
             }).finally(() => {
-                // window.location.reload(false);
+                window.location.reload(false);
             })
     }
     
@@ -48,7 +55,7 @@ export default class CatalogueDetails extends Component {
                                         <Container>
                                             <Form>
                                                 <Form.Group>
-                                                    <Form.Select id="catalogueDetailsCategory" value={this.props.details["details"]["category"]} onChange={this.onChangeDetails}>
+                                                    <Form.Select id="catalogueDetailsCategory" value={this.state.category} onChange={this.onChangeDetails}>
                                                         <option value="T-shirt/top" >T-shirt/top</option>
                                                         <option value="Trouser" >Trouser</option>
                                                         <option value="Pullover" >Pullover</option>
