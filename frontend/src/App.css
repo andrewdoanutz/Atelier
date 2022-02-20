@@ -360,3 +360,19 @@ body{
 -180deg
 );
 }
+
+
+.saveDetailsButton, .saveDetailsButton:visited, .saveDetailsButton:focus{
+  border-width: 2px !important;
+  box-shadow: none !important;
+  border-color: #EF9A9A !important;
+  background-color: #EF9A9A !important;
+  color: white !important;
+  font-weight: 450;
+}
+
+.saveDetailsButton:active, .saveDetailsButton:hover{
+  box-shadow: none !important;
+  background-color:white!important;
+  color: black !important;
+}

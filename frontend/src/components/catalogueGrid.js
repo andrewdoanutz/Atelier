@@ -41,7 +41,7 @@ export default class CatalogueGrid extends Component {
             {Object.keys(this.state.clothes).map((key, clothInd)=>{
                 return(
                     <Accordion.Item eventKey={clothInd.toString()}>
-                        <Accordion.Header>{this.formatClothesCategory(key)}</Accordion.Header>
+                        <Accordion.Header><h4>{this.formatClothesCategory(key)}</h4></Accordion.Header>
                         <Accordion.Body>
                         {this.state.clothes[key].map((arr)=>{
                             return ( 
