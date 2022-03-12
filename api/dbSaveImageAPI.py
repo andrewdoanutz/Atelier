@@ -1,5 +1,6 @@
 from flask import jsonify, make_response
 from flask_restful import Api, Resource, reqparse
+from flask_jwt_extended import jwt_required
 from PIL import Image
 import os
 
@@ -8,7 +9,7 @@ from db.database import Database
 from api.helpers.clothingClassifier import ClothingClassifier
 
 class DatabaseSaveImageAPI(DatabaseAPI):
-
+  @jwt_required
   def post(self):
     parser = reqparse.RequestParser()
     parser.add_argument("email", type=str)
@@ -37,6 +38,7 @@ class DatabaseSaveImageAPI(DatabaseAPI):
 
     return jsonify(status = "success")
 
+  @jwt_required
   def patch(self):
     parser = reqparse.RequestParser()
     parser.add_argument("email", type=str)

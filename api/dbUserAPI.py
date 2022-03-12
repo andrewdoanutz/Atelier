@@ -1,8 +1,10 @@
 from flask import jsonify, make_response
 from flask_restful import Api, Resource, reqparse
+from flask_jwt_extended import jwt_required
 from api.dbAPI import DatabaseAPI
 
 class DatabaseUserAPI(DatabaseAPI):
+  @jwt_required
   def post(self):
     parser = reqparse.RequestParser()
     parser.add_argument("email", type=str)
@@ -13,7 +15,7 @@ class DatabaseUserAPI(DatabaseAPI):
      {"email": args["email"]}).fetchall()
     if user:
       self.db.conn.close()
-      return make_response(jsonify(user = None), 404)
+      return make_response(jsonify(user = None), 500)
 
     self.db.conn.execute("INSERT INTO USERS (email, password) VALUES (:email, :password)",
      {"email": args["email"], "password": args["password"]})
