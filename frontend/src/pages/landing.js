@@ -21,8 +21,9 @@ export default class Landing extends Component {
   }
 
   verifyAccount() {
-    axios.post('http://localhost:5000/api/db/verifyuser', {email: this.state.email, password: this.state.password}).then(response => {
+    axios.post('http://localhost:5000/api/db/verifyuser', {email: this.state.email, password: this.state.password}, {withCredentials: true}).then(response => {
       if (response.status === 200)
+        console.log(response)
         this.cookies.set('email', this.state.email, { path: '/', expires: new Date(Date.now() + 604800)});
         this.setState({pageState: "loggedIn"})
     }).catch(() => {
@@ -34,7 +35,7 @@ export default class Landing extends Component {
     if (this.state.password !== this.state.confirmPassword){
       this.setState({error: "Passwords don't match!"})
     } else {
-      axios.post('http://localhost:5000/api/db/user', {email: this.state.email, password: this.state.password}).then(response => {
+      axios.post('http://localhost:5000/api/db/user', {email: this.state.email, password: this.state.password}, {withCredentials: true}).then(response => {
         if (response.status === 200)
           this.cookies.set('email', this.state.email, { path: '/', expires: new Date(Date.now() + 604800)});
           this.setState({pageState: "loggedIn"})
@@ -46,8 +47,9 @@ export default class Landing extends Component {
   }
 
   resetPassword() {
-    axios.post('http://localhost:5000/api/db/forgotpassword', {email: this.state.email}).then(response => {
+    axios.post('http://localhost:5000/api/db/forgotpassword', {email: this.state.email}, {withCredentials: true}).then(response => {
       if (response.status === 200)
+      console.log(response)
         this.setState({pageState: "emailReset", error: ""})
     }).catch(() => {
         this.setState({error: "Email is not registered!"})

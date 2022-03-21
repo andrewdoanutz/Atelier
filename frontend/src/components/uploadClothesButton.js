@@ -43,8 +43,9 @@ export default class UploadClothesButton extends Component {
       var picsToPOST = []
       this.state.uploadedPictures.map(pic => {
         picsToPOST.push(pic["dataURL"])
+        return true
       })
-      axios.post('http://localhost:5000/api/db/saveimage', {files: picsToPOST, email: this.cookies.get("email")}).then(response => {
+      axios.post('http://localhost:5000/api/db/saveimage', {files: picsToPOST, email: this.cookies.get("email")}, {withCredentials: true}).then(response => {
       console.log("SUCCESS", response)
       window.location.reload();
       }).catch(error => {

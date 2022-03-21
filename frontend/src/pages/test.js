@@ -18,7 +18,7 @@ export default class TestAPI extends Component {
     
     componentDidMount(){
       var cookies = new Cookies()
-        axios.post('http://localhost:5000/api/db/saveimage', {email: cookies.get("email"), files: [s1, s2, s3, s4, s5, s6]}).then(response => {
+        axios.post('http://localhost:5000/api/db/saveimage', {email: cookies.get("email"), files: [s1, s2, s3, s4, s5, s6]}, {withCredentials: true}).then(response => {
             console.log("SUCCESS", response)
             this.setState({getMessage: response})
         }).catch(error => {

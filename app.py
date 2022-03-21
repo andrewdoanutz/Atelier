@@ -18,8 +18,9 @@ app.config["JWT_COOKIE_SECURE"] = False
 app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
 app.config["JWT_SECRET_KEY"] = "3OWdE3JE9Ph6CARp8kjvs11dy9GW5dKN"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(hours=1)
+app.config['JWT_COOKIE_CSRF_PROTECT'] = True
 jwt = JWTManager(app)
-CORS(app)
+CORS(app, supports_credentials=True)
 
 api = Api(app)
 
