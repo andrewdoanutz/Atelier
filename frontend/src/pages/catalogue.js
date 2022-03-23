@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Col, Row, Container} from "react-bootstrap"
+import { Redirect } from "react-router-dom";
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
@@ -16,13 +17,16 @@ export default class Catalogue extends Component {
           clothes: null
         }
         this.cookies = new Cookies();
-
         this.changeDetailsView = this.changeDetailsView.bind(this)
     }
 
     componentDidMount(){
-        axios.post('http://localhost:5000/api/db/getimages', {email: this.cookies.get("email")}).then(response => {
-            console.log("SUCCESS", response)
+        console.log(this.cookies.getAll())
+        axios.get("http://localhost:5000/api/db/getimages", {
+            withCredentials: true,
+            headers: {
+              "X-CSRF-TOKEN": this.cookies.get("csrf_access_token")
+            }}).then(response => {
             if (response["data"]["images"] && response["data"]["images"].length){
                 this.setState({clothes: response["data"]["images"], details: {"details": {"category": response["data"]["images"][0][1]}, "pic": response["data"]["images"][0][0]}})
             }
@@ -43,6 +47,10 @@ export default class Catalogue extends Component {
     }
 
     render() {
+        if (this.cookies.get("csrf_access_token") === undefined)
+        // return (<Redirect push to="/outfit" />)
+        return (<Redirect push to="/" />)
+
         if (this.state.clothes === null) {
             return(
                 <>

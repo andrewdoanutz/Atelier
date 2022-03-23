@@ -14,17 +14,15 @@ export default class Landing extends Component {
       confirmPassword: "",
       error: "",
     }
+    this.cookies = new Cookies();
     this.verifyAccount = this.verifyAccount.bind(this)
     this.signUp = this.signUp.bind(this)
     this.resetPassword = this.resetPassword.bind(this)
-    this.cookies = new Cookies();
   }
 
   verifyAccount() {
     axios.post('http://localhost:5000/api/db/verifyuser', {email: this.state.email, password: this.state.password}, {withCredentials: true}).then(response => {
       if (response.status === 200)
-        console.log(response)
-        this.cookies.set('email', this.state.email, { path: '/', expires: new Date(Date.now() + 604800)});
         this.setState({pageState: "loggedIn"})
     }).catch(() => {
         this.setState({error: "Wrong email or password!"})
@@ -37,7 +35,6 @@ export default class Landing extends Component {
     } else {
       axios.post('http://localhost:5000/api/db/user', {email: this.state.email, password: this.state.password}, {withCredentials: true}).then(response => {
         if (response.status === 200)
-          this.cookies.set('email', this.state.email, { path: '/', expires: new Date(Date.now() + 604800)});
           this.setState({pageState: "loggedIn"})
       }).catch(() => {
           this.setState({error: "Email is already registered! Forgot your password?"})
@@ -57,7 +54,7 @@ export default class Landing extends Component {
   }
 
   render() {
-    if (this.cookies.get("email") !== undefined)
+    if (this.cookies.get("csrf_access_token") !== undefined)
       // return (<Redirect push to="/outfit" />)
       return (<Redirect push to="/catalogue" />)
       

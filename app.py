@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager, set_access_cookies, create_access_token, get_jwt_identity, unset_jwt_cookies, get_jwt
 from flask_restful import Api
 from flask_cors import CORS
-import datetime
+from datetime import datetime, timedelta, timezone
 
 from api.dbGetUserAPI import DatabaseGetUserAPI
 from api.dbVerifyUserAPI import DatabaseVerifyUserAPI
@@ -17,7 +17,7 @@ app = Flask(__name__, static_url_path='', static_folder='frontend/public')
 app.config["JWT_COOKIE_SECURE"] = False
 app.config["JWT_TOKEN_LOCATION"] = ["cookies"]
 app.config["JWT_SECRET_KEY"] = "3OWdE3JE9Ph6CARp8kjvs11dy9GW5dKN"
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(hours=1)
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 app.config['JWT_COOKIE_CSRF_PROTECT'] = True
 jwt = JWTManager(app)
 CORS(app, supports_credentials=True)
@@ -29,7 +29,7 @@ def refreshExpiringJWTs(response):
     try:
         exp_timestamp = get_jwt()["exp"]
         now = datetime.now(timezone.utc)
-        target_timestamp = datetime.timestamp(now + datetime.timedelta(hours=1))
+        target_timestamp = datetime.timestamp(now + timedelta(hours=1))
         if target_timestamp > exp_timestamp:
             access_token = create_access_token(identity=get_jwt_identity())
             set_access_cookies(response, access_token)
