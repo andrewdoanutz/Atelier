@@ -9,7 +9,7 @@ from db.database import Database
 from api.helpers.clothingClassifier import ClothingClassifier
 
 class DatabaseSaveImageAPI(DatabaseAPI):
-  @jwt_required
+  @jwt_required()
   def post(self):
     parser = reqparse.RequestParser()
     parser.add_argument("email", type=str)
@@ -38,7 +38,7 @@ class DatabaseSaveImageAPI(DatabaseAPI):
 
     return jsonify(status = "success")
 
-  @jwt_required
+  @jwt_required()
   def patch(self):
     parser = reqparse.RequestParser()
     parser.add_argument("email", type=str)

@@ -22,7 +22,11 @@ export default class CatalogueDetails extends Component {
       }
 
     detailsUpdateOnClick(){
-        axios.patch('http://localhost:5000/api/db/saveimage', {category: this.state.category, email: this.cookies.get("email"), image: this.props.details["pic"]}, {withCredentials: true}).then(response => {
+        axios.patch('http://localhost:5000/api/db/saveimage', {category: this.state.category, email: this.cookies.get("email"), image: this.props.details["pic"]}, {
+            withCredentials: true,
+            headers: {
+              "X-CSRF-TOKEN": this.cookies.get("csrf_access_token")
+            }}).then(response => {
             console.log("SUCCESS", response)
             }).catch(error => {
                 console.log(error)

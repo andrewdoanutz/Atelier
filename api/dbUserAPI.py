@@ -4,7 +4,7 @@ from flask_jwt_extended import jwt_required
 from api.dbAPI import DatabaseAPI
 
 class DatabaseUserAPI(DatabaseAPI):
-  @jwt_required
+  @jwt_required()
   def post(self):
     parser = reqparse.RequestParser()
     parser.add_argument("email", type=str)

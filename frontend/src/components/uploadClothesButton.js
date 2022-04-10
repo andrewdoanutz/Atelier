@@ -45,7 +45,11 @@ export default class UploadClothesButton extends Component {
         picsToPOST.push(pic["dataURL"])
         return true
       })
-      axios.post('http://localhost:5000/api/db/saveimage', {files: picsToPOST, email: this.cookies.get("email")}, {withCredentials: true}).then(response => {
+      axios.post('http://localhost:5000/api/db/saveimage', {files: picsToPOST, email: this.cookies.get("email")}, {
+        withCredentials: true,
+        headers: {
+          "X-CSRF-TOKEN": this.cookies.get("csrf_access_token")
+        }}).then(response => {
       console.log("SUCCESS", response)
       window.location.reload();
       }).catch(error => {

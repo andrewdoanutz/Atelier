@@ -16,7 +16,11 @@ export default class Account extends Component {
     this.onChangeAccountPassword = this.onChangeAccountPassword.bind(this)
   }
   componentDidMount(){
-    axios.post('http://localhost:5000/api/db/getuser', {email: this.cookies.get("email")}, {withCredentials: true}).then(response => {
+    axios.post('http://localhost:5000/api/db/getuser', {email: this.cookies.get("email")}, {
+      withCredentials: true,
+      headers: {
+        "X-CSRF-TOKEN": this.cookies.get("csrf_access_token")
+      }}).then(response => {
         console.log("SUCCESS", response)
         this.setState({email: response["data"]["user"][0][0], password: response["data"]["user"][0][1]})
         }).catch(error => {
@@ -25,7 +29,11 @@ export default class Account extends Component {
 }
 
   saveAccountDetailsOnClick(){
-    axios.put('http://localhost:5000/api/db/user', {email: this.state.email, password: this.state.password}, {withCredentials: true}).then(response => {
+    axios.put('http://localhost:5000/api/db/user', {email: this.state.email, password: this.state.password}, {
+      withCredentials: true,
+      headers: {
+        "X-CSRF-TOKEN": this.cookies.get("csrf_access_token")
+      }}).then(response => {
             console.log("SUCCESS", response)
             }).catch(error => {
                 console.log(error)
