@@ -21,7 +21,6 @@ export default class Catalogue extends Component {
     }
 
     componentDidMount(){
-        console.log(this.cookies.getAll())
         axios.get("http://localhost:5000/api/db/getimages", {
             withCredentials: true,
             headers: {

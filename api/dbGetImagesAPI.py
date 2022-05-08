@@ -9,7 +9,7 @@ class DatabaseGetImagesAPI(DatabaseAPI):
   def get(self):
     identity = get_jwt_identity()
     user = self.db.conn.execute("SELECT * FROM USERS WHERE email=:email",
-     {"email": identity}).fetchall()
+    {"email": identity}).fetchall()
 
     if not user:
       self.db.conn.close()
@@ -17,7 +17,7 @@ class DatabaseGetImagesAPI(DatabaseAPI):
       return make_response(jsonify(error = "User does not exist"), 404)
 
     images = self.db.conn.execute("SELECT image, label FROM IMAGES WHERE user_email=:email",
-     {"email": identity}).fetchall()
+    {"email": identity}).fetchall()
     self.db.conn.close()
 
     return jsonify(status = "success", images = images)
